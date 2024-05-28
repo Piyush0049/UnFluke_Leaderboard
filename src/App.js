@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import Togglesidebar from './components/Togglesidebar';
 
 function App() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {windowWidth < 1040 && <Togglesidebar />}
+      <div className="main-wrapper" style={{display: "flex"}}>
+        {windowWidth > 1040 && <Sidebar />}
+        <div className="content-wrapper" style={{flex: 1, padding : windowWidth > 420 ? "20px" : "8px"}}>
+          <Header />
+          <Routes>
+            <Route path="/" element={<MainContent />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
