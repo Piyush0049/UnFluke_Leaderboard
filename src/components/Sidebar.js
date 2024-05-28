@@ -37,7 +37,7 @@ const Sidebar = () => {
                     ...styles.heading,
                     transform: isImageHovered ? 'scale(1.1)' : 'scale(1)',
                     transition: 'transform 0.3s'
-                }} src={image} alt='image' onMouseEnter={handleImageMouseEnter}
+                }} src={image} alt='' onMouseEnter={handleImageMouseEnter}
                     onMouseLeave={handleImageMouseLeave}></img>
             </div>
             <ul style={styles.list}>

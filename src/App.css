@@ -2,8 +2,6 @@
   display: flex;
 }
 
-
-
 .main-wrapper {
   flex-grow: 1;
   background-color: #2c2c38;

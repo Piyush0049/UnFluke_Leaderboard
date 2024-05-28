@@ -88,7 +88,7 @@ const Togglesidebar = () => {
                         height: "50px",
                         borderRadius: "7px",
                         marginBottom: "20px"
-                    }} src={image} alt='image'></img>
+                    }} src={image} alt=''></img>
                 </div>
                 <ul style={{ listStyle: 'none', padding: 0 }}>
                     {items.map((item, index) => (
