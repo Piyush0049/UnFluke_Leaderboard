@@ -131,7 +131,7 @@ const CustomLineChart = ({ title, dataKey, color, windowWidth  }) => (
             width : "auto"  // Ensuring a minimum width for each chart
         }}
     >
-        <h3>{title}</h3>
+        <h3 style = {{color : {color} }}>{title}</h3>
         <ResponsiveContainer width="100%" height={300}>
             <LineChart data={transformDataForChart(dataKey)} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" />
